@@ -44,7 +44,7 @@ const TodoList = () => {
       alignItems="center"
       maxW={"100vh"}
       margin='auto'
-      bgGradient="linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(14,7,144,1) 58%)"
+      bgGradient="linear(to-l, #7928CA, #FF0080)"
       boxShadow="dark-lg"
     >
 
