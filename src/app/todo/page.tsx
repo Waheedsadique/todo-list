@@ -18,11 +18,11 @@ import {
   Divider,
   Stack,
   Box,
-  
+  Image,
 } from "@chakra-ui/react";
 
 const TodoList = () => {
-  const [todos, setTodos] = useState(["Namaz", "Quran",]);
+  const [todos, setTodos] = useState(["Namaz", "Quran"]);
   const [newTodo, setNewTodo] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -43,20 +43,13 @@ const TodoList = () => {
       py={[0, 10, 20]}
       alignItems="center"
       maxW={"100vh"}
-      margin='auto'
+      margin="auto"
       bgGradient="linear(to-l, #7928CA, #FF0080)"
       boxShadow="dark-lg"
     >
+      <VStack w="auto" h="auto" p={2} spacing={10}>
+        <Heading as="i"> Hey! Enter Your Todo_List </Heading>
 
-      <VStack
-        w="auto"
-        h="auto"
-        p={2}
-        spacing={10}
-
-      >
-        <Heading as="i" bgGradient="linear-gradient(90deg, rgba(136,168,206,1) 16%, rgba(96,58,75,1) 66%)"> <marquee >Hey! Enter Your Todo_List </marquee></Heading>
-        
         <SimpleGrid columns={1} rowGap={10}>
           <form onSubmit={handleSubmit}>
             <HStack spacing={"24px"}>
@@ -76,7 +69,7 @@ const TodoList = () => {
                   bg: "linear(to-r, red.500, yellow.500)",
                 }}
               >
-                Add
+              Add
               </Button>
             </HStack>
           </form>
@@ -87,9 +80,20 @@ const TodoList = () => {
                 <Stack key={index}>
                   <HStack spacing={"auto"}>
                     <Checkbox spacing={"24px"} colorScheme="orange">
-                      <ListItem textColor={"white"} fontSize="large">{todo}</ListItem>
+                      <ListItem textColor={"white"} fontSize="large">
+                        {todo}
+                      </ListItem>
                     </Checkbox>
-                    <CloseButton onClick={() => handleDelete(index)} />
+                    {/* <CloseButton onClick={() => handleDelete(index)} /> */}
+                    <Stack>
+                      <Image
+                        onClick={() => handleDelete(index)}
+                        
+                        w={"80%"}
+                        h={"80%"}
+                        src="delete.png"
+                      />
+                    </Stack>
                   </HStack>
                   <Divider orientation="horizontal" />
                 </Stack>
